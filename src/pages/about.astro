@@ -1,11 +1,13 @@
 ---
+import '../styles/global.css';
+
 const PAGE_TITLE = "About me";
 
 const IDENTITY = {
-	firstName: "Vitor Emanuel",
-	country: "Suisse",
-	occupation: "apprendre Astro",
-	hobbies: ["flag football", "gaming", "manga reading"],
+  firstName: "Vitor Emanuel",
+  country: "Suisse",
+  occupation: "apprendre Astro",
+  hobbies: ["flag football", "gaming", "manga reading"],
 };
 
 const SKILLS = ["HTML", "CSS", "UX Design", "JavaScript", "Astro"];
@@ -13,45 +15,81 @@ const SKILLS = ["HTML", "CSS", "UX Design", "JavaScript", "Astro"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "upperCase";
 ---
 
 <html lang="fr-ch">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{PAGE_TITLE}</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{PAGE_TITLE}</title>
+    <style define:vars={{skillColor, fontWeight, textCase}}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+		text-transform: var(--textCase);
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
 
-		<h1>{PAGE_TITLE}</h1>
-        <h2>My new Astro site</h2>
+    <h1>{PAGE_TITLE}</h1>
+    <h2>My new Astro site</h2>
 
-        <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
+    <p>
+      I am working through Astro's introductory tutorial. This is the second
+      page on my website, and it's the first one I built myself!
+    </p>
 
-        <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+    <p>
+      This site will update as I complete more of the tutorial, so keep checking
+      back and see how my journey is going!
+    </p>
 
-		<h1>Voici des informations sur moi :</h1>
-		<ul>
-			<li>Je m'appelle {IDENTITY.firstName}</li>
-			<li>Je vi en {IDENTITY.country} et actuellemment ce que je fais c'est {IDENTITY.occupation}.</li>
-			{IDENTITY.hobbies.length >= 2 &&
-				<li>Deux de mes hobbies sont : {IDENTITY.hobbies[0]} et {IDENTITY.hobbies[1]}</li>
-			}
-		</ul>
-		<p>Mes compétences sont :</p>
-		<ul>
-			{SKILLS.map((skill) => <li>{skill}</li>)}
-		</ul>
+    <h1>Voici des informations sur moi :</h1>
+    <ul>
+      <li>Je m'appelle {IDENTITY.firstName}</li>
+      <li>
+        Je vi en {IDENTITY.country} et actuellemment ce que je fais c'est {
+          IDENTITY.occupation
+        }.
+      </li>
+      {
+        IDENTITY.hobbies.length >= 2 && (
+          <li>
+            Deux de mes hobbies sont : {IDENTITY.hobbies[0]} et{" "}
+            {IDENTITY.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>Mes compétences sont :</p>
+    <ul>
+      {SKILLS.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
 
-		{happy && <p>Je suis heureux d'apprendre à utiliser Astro !</p>}
+    {happy && <p>Je suis heureux d'apprendre à utiliser Astro !</p>}
 
-		{finished && <p>J'ai terminé ce tutoriel</p>}
+    {finished && <p>J'ai terminé ce tutoriel</p>}
 
-		{goal === 3 ? <p>Mon objectif est de le finir en 3 jours.</p> : <p>Mon objectif n'est pas 3 jours</p>}
-	</body>
+    {
+      goal === 3 ? (
+        <p>Mon objectif est de le finir en 3 jours.</p>
+      ) : (
+        <p>Mon objectif n'est pas 3 jours</p>
+      )
+    }
+  </body>
 </html>
