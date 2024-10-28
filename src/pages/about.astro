@@ -1,9 +1,8 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-const PAGE_TITLE = "About me";
+const pageTitle = "About me";
 
 const IDENTITY = {
   firstName: "Vitor Emanuel",
@@ -20,33 +19,24 @@ const goal = 3;
 
 const skillColor = "navy";
 const fontWeight = "bold";
-const textCase = "upperCase";
+const textCase = "uppercase";
 ---
 
-<html lang="fr-ch">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{PAGE_TITLE}</title>
-    <style define:vars={{skillColor, fontWeight, textCase}}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-		text-transform: var(--textCase);
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
+<BaseLayout pageTitle={pageTitle}>
+  <style define:vars={{ skillColor, fontWeight, textCase }}>
+    h1 {
+      color: purple;
+      font-size: 4rem;
+    }
 
-    <h1>{PAGE_TITLE}</h1>
-    <h2>My new Astro site</h2>
+    .skill {
+      color: var(--skillColor) !important;
+      font-weight: var(--fontWeight) !important;
+      text-transform: var(--textCase) !important;
+    }
+  </style>
+  
+  <h2>My new Astro site</h2>
 
     <p>
       I am working through Astro's introductory tutorial. This is the second
@@ -91,7 +81,4 @@ const textCase = "upperCase";
         <p>Mon objectif n'est pas 3 jours</p>
       )
     }
-
-	<Footer />
-  </body>
-</html>
+</BaseLayout>
