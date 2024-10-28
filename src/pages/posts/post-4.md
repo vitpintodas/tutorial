@@ -7,7 +7,7 @@ author: 'Vitor Pinto Da Silva'
 image:
     url: 'https://docs.astro.build/assets/rose.webp'
     alt: 'The Astro logo on a dark background with a pink glow.'
-tags: ["astro", "blogging", "learning in public"]
+tags: ["astro", "learning in public", "hardcore"]
 ---
 
 Cette page devrait s'afficher automatiquement sur la page "blog".
