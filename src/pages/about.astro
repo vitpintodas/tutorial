@@ -1,6 +1,6 @@
 ---
-import '../styles/global.css';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "About me";
 
@@ -35,50 +35,50 @@ const textCase = "uppercase";
       text-transform: var(--textCase) !important;
     }
   </style>
-  
+
   <h2>My new Astro site</h2>
 
-    <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
-    </p>
+  <p>
+    I am working through Astro's introductory tutorial. This is the second page
+    on my website, and it's the first one I built myself!
+  </p>
 
-    <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
-    </p>
+  <p>
+    This site will update as I complete more of the tutorial, so keep checking
+    back and see how my journey is going!
+  </p>
 
-    <h1>Voici des informations sur moi :</h1>
-    <ul>
-      <li>Je m'appelle {IDENTITY.firstName}</li>
-      <li>
-        Je vi en {IDENTITY.country} et actuellemment ce que je fais c'est {
-          IDENTITY.occupation
-        }.
-      </li>
-      {
-        IDENTITY.hobbies.length >= 2 && (
-          <li>
-            Deux de mes hobbies sont : {IDENTITY.hobbies[0]} et{" "}
-            {IDENTITY.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>Mes compétences sont :</p>
-    <ul>
-      {SKILLS.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-
-    {happy && <p>Je suis heureux d'apprendre à utiliser Astro !</p>}
-
-    {finished && <p>J'ai terminé ce tutoriel</p>}
-
+  <h1>Voici des informations sur moi :</h1>
+  <ul>
+    <li>Je m'appelle {IDENTITY.firstName}</li>
+    <li>
+      Je vi en {IDENTITY.country} et actuellemment ce que je fais c'est {
+        IDENTITY.occupation
+      }.
+    </li>
     {
-      goal === 3 ? (
-        <p>Mon objectif est de le finir en 3 jours.</p>
-      ) : (
-        <p>Mon objectif n'est pas 3 jours</p>
+      IDENTITY.hobbies.length >= 2 && (
+        <li>
+          Deux de mes hobbies sont : {IDENTITY.hobbies[0]} et{" "}
+          {IDENTITY.hobbies[1]}
+        </li>
       )
     }
+  </ul>
+  <p>Mes compétences sont :</p>
+  <ul>
+    {SKILLS.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>Je suis heureux d'apprendre à utiliser Astro !</p>}
+
+  {finished && <p>J'ai terminé ce tutoriel</p>}
+
+  {
+    goal === 3 ? (
+      <p>Mon objectif est de le finir en 3 jours.</p>
+    ) : (
+      <p>Mon objectif n'est pas 3 jours</p>
+    )
+  }
 </BaseLayout>
