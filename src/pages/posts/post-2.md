@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: My Second Blog Post
 author: Vitor Pinto Da Silva
 description: "J'apprends à utiliser Astro !"
@@ -8,6 +9,5 @@ image:
 pubDate: 2024-10-04
 tags: ["astro", "blogging", "learning in public", "successes"]
 ---
-# Ma Deuxième publication
 
 En réalité, j'ai écris le troisième post avant d'écrire celui-ci.
